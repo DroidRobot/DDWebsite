@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.LinkedList;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -7,6 +8,7 @@ import java.lang.StringBuilder;
 public class test {
     private static Connection con;
     private static Statement st;
+    private static LinkedList<Account> accounts;
     public static void main(String[] args) throws Exception {
         String url = "jdbc:postgresql://localhost:5432/master";
         String username = "postgres";
@@ -21,13 +23,39 @@ public class test {
 
         Account ac = new Account("Nate", true);
         Account ac2 = new Account("Carti", false);
-        insertData2(2, ac2);
+        Account ac3 = new Account("Kanye", false);
+
+        ac.getQueue().add(ac2);
+        ac.getQueue().priorityAdd(ac3);
+        System.out.println(ac.toString());
+        System.out.println(ac.getQueue().toString());  
+
         displayData2();
 
         
         con.close();
         st.close();
 
+    }
+    private static void updateDB(){
+        /*
+         * To update a field of a custom Java object stored as JSON in an SQL database, you would typically follow these steps:
+
+Retrieve the JSON Data:
+Use a SELECT statement to fetch the JSON data from the database.
+Parse the JSON Data:
+Use a JSON parsing library like Jackson or Gson to convert the JSON string into a Java object.
+Update the Object:
+Modify the Java object’s field using its setter method or directly if the field is accessible.
+Convert the Object Back to JSON:
+Use the same JSON library to convert the updated Java object back into a JSON string.
+Update the JSON Data in the Database:
+Use an UPDATE statement to save the new JSON string back to the database.
+         */
+    }
+    private String getJSON(Account account) throws Exception{
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(account);
     }
     private static void insertData2(int id, Account account) throws Exception{
         ObjectMapper mapper = new ObjectMapper();
