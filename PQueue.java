@@ -70,8 +70,7 @@ public class PQueue<Account> implements Queue{
 
     @Override
     public Iterator iterator() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'iterator'");
+        return queue.iterator();
     }
 
     @Override
