@@ -29,15 +29,12 @@ public class test {
         System.out.println(driver2.toString());
         System.out.println(driver2.getQueue().toString()); 
 
-        String driver1JSON = getJSON(driver1);
-        System.out.println("a;lskdfjals");
-        Account newD1 = getAccount(driver1JSON);
-        newD1.setName("NATE");
-        System.out.println(newD1.toString());
-        displayData2();
         
         con.close();
         st.close();
+
+        DatabaseDriver dd = new DatabaseDriver(url, username, pw, "table2");
+        //dd.insertData(1, dd.getJSON(driver1));
 
     }
     private static void updateDB() throws Exception{
@@ -117,16 +114,7 @@ Use an UPDATE statement to save the new JSON string back to the database.
         String sql = "SELECT * FROM public.table";
         ResultSet rs = st.executeQuery(sql);
 
-        int i = 1;
-        while(rs.next()){
-            System.out.println("Row " + i + ": ");
-            for(int j = 1;j<=rs.getMetaData().getColumnCount();j++){
-                System.out.print(rs.getString(j) + " ");
-            };
-            System.out.println();
-            i++;
-        }
-        rs.close();
+        
 
     }
 }
