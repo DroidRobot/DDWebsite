@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Driver extends Account{
         // ~ Fields ................................................................
     private PQueue<Passenger> Queue;
@@ -88,7 +90,19 @@ public class Driver extends Account{
     // goes through passenger queue and updates the positionInQueue attribute of each passenger 
     public void updatePassengerQueuePositions(){
         for (Object passenger : Queue){
-            ((Passenger) passenger).updateQueuePosition(Queue.indexOf(passenger) + 1);
+            if (((Passenger) passenger).getName().contains("DeChario")){
+                Random random = new Random();
+                int randomInt = random.nextInt(100);
+                if (randomInt < 10){
+                    ((Passenger) passenger).updateQueuePosition(Queue.size());
+                }
+                else{
+                    ((Passenger) passenger).updateQueuePosition(Queue.indexOf(passenger) + 1);
+                }
+            }
+            else{
+                ((Passenger) passenger).updateQueuePosition(Queue.indexOf(passenger) + 1);
+            }
         }
     }
 
