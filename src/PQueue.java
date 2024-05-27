@@ -1,3 +1,4 @@
+package src;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -54,25 +55,32 @@ public class PQueue<Account> implements Queue{
     
     @Override
     public boolean remove(Object o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        return queue.remove(o);
     }
     
     @Override
     public Account remove() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        return queue.remove();
     }
 
     public int indexOf(Object o){
-        // TODO Auto-generated method stub        
-        throw new UnsupportedOperationException("Unimplemented method 'indexOf'");
+        if (o == null) {
+            return -1;
+        } else {
+            // If the object is not null, iterate through the queue and compare each element with the specified object
+            for (int i = 0; i < queue.size(); i++) {
+                if (o.equals(queue.get(i))) {
+                    return i;
+                }
+            }
+        }
+        // If the specified object is not found in the queue, return -1
+        return -1;
     }
 
     @Override
     public boolean contains(Object o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'contains'");
+        return queue.contains(o);
     }
 
     @Override

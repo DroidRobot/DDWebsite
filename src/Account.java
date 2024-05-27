@@ -1,10 +1,9 @@
-import java.util.PriorityQueue;
+package src;
 
 public class Account {
     private String name;
     private String accountType; // true driver false passenger
-    // private PQueue<Account> queue;
-    private int queueSize;
+    private String phoneNumber;
 
 // public Account() {
 // name = "";
@@ -19,14 +18,10 @@ public class Account {
 // queue = new PQueue<Account>();
 // queueSize = queue.size();
 // }
-    public Account(String name, boolean type) {
+    public Account(String name, boolean driver, String phoneNumber) {
         this.name = name;
-        if (type != true) {
-            this.accountType = "Driver";
-        }
-        else {
-            this.accountType = "user";
-        }
+        this.phoneNumber = phoneNumber;
+        this.setAccountType(driver);
     }
 
 
@@ -34,10 +29,16 @@ public class Account {
         return name;
     }
 
+    
+    public String getPhoneNumber(){
+        return this.phoneNumber;
+    }
+
 
     public String getAccountType() {
         return accountType;
     }
+
 // public PQueue<Account> getQueue(){
 // // return queue;
 // }
@@ -47,13 +48,30 @@ public class Account {
         name = newName;
     }
 
+    public void setPhoneNumber(String newPhoneNumber){
+        this.phoneNumber = newPhoneNumber;
+    }
+
+    public void setAccountType(boolean driver){
+        if (driver) {
+            this.accountType = "Driver";
+        }
+        else {
+            this.accountType = "user";
+        }
+    }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Name: ");
         sb.append(name);
         sb.append(" Account Type: " + accountType);
+        sb.append(" Phone Number: " + phoneNumber);
         return sb.toString();
+    }
+
+    public boolean equals(Account account){
+        return this.phoneNumber.equals(account.getPhoneNumber());
     }
 
 }

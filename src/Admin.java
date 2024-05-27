@@ -1,3 +1,4 @@
+package src;
 public class Admin extends Account{
     
     private Admin(String Name, boolean Type, String PhoneNumber) {
