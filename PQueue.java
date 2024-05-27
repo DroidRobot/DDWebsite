@@ -5,6 +5,7 @@ import java.util.Queue;
 
 public class PQueue<Account> implements Queue{
     private LinkedList<Account> queue;
+    public int waitTime;
 
     public PQueue(){
         queue = new LinkedList<Account>();
@@ -62,6 +63,12 @@ public class PQueue<Account> implements Queue{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'remove'");
     }
+
+    public int indexOf(Object o){
+        // TODO Auto-generated method stub        
+        throw new UnsupportedOperationException("Unimplemented method 'indexOf'");
+    }
+
     @Override
     public boolean contains(Object o) {
         // TODO Auto-generated method stub
