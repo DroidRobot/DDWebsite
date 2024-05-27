@@ -1,9 +1,5 @@
 {
     "java.project.referencedLibraries": [
-        "c:\\Users\\nobce\\Downloads\\postgresql-42.7.3.jar",
-        "c:\\Users\\nobce\\Downloads\\jackson-core-2.17.1.jar",
-        "c:\\Users\\nobce\\Downloads\\jackson-annotations-2.17.1.jar",
-        "c:\\Users\\nobce\\Downloads\\jackson-databind-2.17.1.jar",
         "lib/*jar"
     ],
     "java.project.sourcePaths": [
